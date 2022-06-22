@@ -15,6 +15,11 @@
 
 }
 
+.dark{
+    --white: #333;
+    --black: #fff;
+}
+
 header{
     position: absolute;
     display: flex;
@@ -34,6 +39,7 @@ header .logo{
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    user-select: none;
 }
 
 .righSide{
@@ -106,13 +112,71 @@ header .logo{
     z-index: 2;
     user-select: none;
     mix-blend-mode: screen;
+    
+}
+
+.dark .mask{
+    filter:  invert(1);
+    mix-blend-mode: multiply;
 }
 
 .main h2{
     position: relative;
     z-index: 4;
     font-size: 16vw;
-    color: var(--white);
+    color: #fff;
     text-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
     user-select: none;
 }
+
+
+.navigation{
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--white);
+    z-index: 6;
+    transition: 0.5s;
+}
+.navigation li{
+    list-style: none;
+}
+
+.navigation li a{
+    display: inline-flex;
+    margin: 5px 0;
+    font-size: 1.25em;
+    text-decoration: none;
+    color: var(--black);
+    padding: 5px 20px;
+    border-radius: 40px;
+}
+
+.navigation li a:hover{
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.navigation.active{
+    left: 0;
+}
+
+
+
+@media (max-width: 768px){
+    header{
+        padding: 20px;
+    }
+
+    
+
+}
+
+
+
